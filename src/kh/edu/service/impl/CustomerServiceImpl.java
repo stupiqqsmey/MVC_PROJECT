@@ -19,7 +19,11 @@ public class CustomerServiceImpl implements CustomerService {
 
         for (Customer c : customers) {
             responses.add(new CustomerResponse(
+<<<<<<< HEAD
                     c.getUuid(),
+=======
+                    c.getId(),
+>>>>>>> 52a234e (get-jdbc)
                     c.getFullName(),
                     c.getEmail(),
                     c.getPhone(),

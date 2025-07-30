@@ -4,7 +4,11 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class Customer {
+<<<<<<< HEAD
     private Integer uuid; // maps to 'id' in DB
+=======
+    private Integer id; // maps to 'id' in DB
+>>>>>>> 52a234e (get-jdbc)
     private String fullName;
     private String email;
     private String phone;
@@ -24,12 +28,21 @@ public class Customer {
     private Integer customerSegmentId;
 
     // Getters and Setters
+<<<<<<< HEAD
     public Integer getUuid() {
         return uuid;
     }
 
     public void setUuid(Integer uuid) {
         this.uuid = uuid;
+=======
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer uuid) {
+        this.id = id;
+>>>>>>> 52a234e (get-jdbc)
     }
 
     public String getFullName() {
