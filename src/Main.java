@@ -10,6 +10,7 @@ public class Main {
         CustomerView view = new CustomerView();
 
         List<CustomerResponse> customers = controller.getAllCustomers();
-        view.displayCustomersAsTable(customers);
+
+        view.displayMenu(customers);
     }
 }

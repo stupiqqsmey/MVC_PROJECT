@@ -1,11 +1,6 @@
 package kh.edu.view;
 
 import kh.edu.dto.CustomerResponse;
-<<<<<<< HEAD
-import java.util.List;
-
-public class CustomerView {
-=======
 
 import java.util.List;
 import java.util.Scanner;
@@ -16,13 +11,14 @@ public class CustomerView {
 
     public void displayMenu(List<CustomerResponse> customers) {
         while (true) {
-            System.out.println("\n--- Customer Menu ---");
+            System.out.println("\n=== 📋 Customer Menu ===");
             System.out.println("1. View All Customers");
             System.out.println("2. View Only Active Customers");
             System.out.println("3. View Only Deleted Customers");
             System.out.println("4. Search Customer by Name");
+            System.out.println("5. View Customers by Email");
             System.out.println("0. Exit");
-            System.out.print("Choose an option: ");
+            System.out.print("🔢 Choose an option: ");
             String choice = scanner.nextLine();
 
             switch (choice) {
@@ -31,16 +27,20 @@ public class CustomerView {
                     break;
                 case "2":
                     displayCustomersAsTable(
-                            customers.stream().filter(c -> !c.getIsDeleted()).toList()
+                            customers.stream()
+                                    .filter(c -> !c.getIsDeleted())
+                                    .toList()
                     );
                     break;
                 case "3":
                     displayCustomersAsTable(
-                            customers.stream().filter(CustomerResponse::getIsDeleted).toList()
+                            customers.stream()
+                                    .filter(CustomerResponse::getIsDeleted)
+                                    .toList()
                     );
                     break;
                 case "4":
-                    System.out.print("Enter name to search: ");
+                    System.out.print("🔍 Enter name to search: ");
                     String name = scanner.nextLine().toLowerCase();
                     displayCustomersAsTable(
                             customers.stream()
@@ -48,19 +48,27 @@ public class CustomerView {
                                     .toList()
                     );
                     break;
+                case "5":
+                    System.out.print("📧 Enter email to search: ");
+                    String email = scanner.nextLine().toLowerCase();
+                    displayCustomersAsTable(
+                            customers.stream()
+                                    .filter(c -> c.getEmail().toLowerCase().contains(email))
+                                    .toList()
+                    );
+                    break;
                 case "0":
-                    System.out.println("Exiting menu...");
+                    System.out.println("👋 Exiting menu...");
                     return;
                 default:
-                    System.out.println("Invalid option. Please try again.");
+                    System.out.println("❌ Invalid option. Please try again.");
             }
         }
     }
 
->>>>>>> 52a234e (get-jdbc)
     public void displayCustomersAsTable(List<CustomerResponse> customers) {
         if (customers == null || customers.isEmpty()) {
-            System.out.println("No customers found.");
+            System.out.println("⚠️ No customers found.");
             return;
         }
 
@@ -73,7 +81,7 @@ public class CustomerView {
         for (CustomerResponse c : customers) {
             System.out.printf(
                     "%-5d %-20s %-25s %-15s %-10s %-12s %-20s %-12s %-10s\n",
-                    c.getUuid(),
+                    c.getId(),
                     c.getFullName(),
                     c.getEmail(),
                     c.getPhone(),

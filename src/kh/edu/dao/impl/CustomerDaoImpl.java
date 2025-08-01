@@ -20,12 +20,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
             while (rs.next()) {
                 Customer customer = new Customer();
-
-<<<<<<< HEAD
-                customer.setUuid(rs.getInt("id")); // in DB it's 'id'
-=======
                 customer.setId(rs.getInt("id")); // in DB it's 'id'
->>>>>>> 52a234e (get-jdbc)
                 customer.setFullName(rs.getString("full_name"));
                 customer.setEmail(rs.getString("email"));
                 customer.setPhone(rs.getString("phone_number"));
@@ -47,11 +42,7 @@ public class CustomerDaoImpl implements CustomerDao {
                 list.add(customer);
             }
         } catch (SQLException e) {
-<<<<<<< HEAD
             e.printStackTrace(); // Full error for debugging
-=======
-            e.getMessage();
->>>>>>> 52a234e (get-jdbc)
         }
 
         return list;

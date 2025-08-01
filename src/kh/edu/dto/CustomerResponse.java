@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class CustomerResponse {
-    private Integer uuid;
+    private Integer id;
     private String fullName;
     private String email;
     private String phone;
@@ -14,10 +14,10 @@ public class CustomerResponse {
     private BigDecimal monthlyIncome;
     private Boolean isDeleted;
 
-    public CustomerResponse(Integer uuid, String fullName, String email, String phone,
+    public CustomerResponse(Integer id, String fullName, String email, String phone,
                             String gender, Date dob, String companyName,
                             BigDecimal monthlyIncome, Boolean isDeleted) {
-        this.uuid = uuid;
+        this.id = id;
         this.fullName = fullName;
         this.email = email;
         this.phone = phone;
@@ -29,7 +29,7 @@ public class CustomerResponse {
     }
 
     // Getters
-    public Integer getUuid() { return uuid; }
+    public Integer getId() { return id; }
     public String getFullName() { return fullName; }
     public String getEmail() { return email; }
     public String getPhone() { return phone; }
