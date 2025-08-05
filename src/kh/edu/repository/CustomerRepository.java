@@ -6,6 +6,5 @@ import java.util.List;
 public interface CustomerRepository {
     List<Customer> getAll();
     List <Customer>  getByEmail(String email);
-
 }
 

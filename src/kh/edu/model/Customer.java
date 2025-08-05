@@ -7,7 +7,7 @@ public class Customer {
     private Integer id; // maps to 'id' in DB
     private String fullName;
     private String email;
-    private String phone;
+    private String phoneNumber;
     private String gender;
     private Date dob;
     private String position;
@@ -48,12 +48,12 @@ public class Customer {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPhoneNumber(String phone) {
+        this.phoneNumber = phone;
     }
 
     public String getGender() {

@@ -8,8 +8,10 @@ import kh.edu.service.CustomerService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class CustomerServiceImpl implements CustomerService {
+
     private final CustomerDao dao = new CustomerDaoImpl();
 
     @Override
@@ -22,7 +24,7 @@ public class CustomerServiceImpl implements CustomerService {
                     c.getId(),
                     c.getFullName(),
                     c.getEmail(),
-                    c.getPhone(),
+                    c.getPhoneNumber(),
                     c.getGender(),
                     c.getDob(),
                     c.getCompanyName(),
@@ -30,7 +32,38 @@ public class CustomerServiceImpl implements CustomerService {
                     c.getIsDeleted()
             ));
         }
-
         return responses;
+    }
+
+    @Override
+    public void createCustomer(Customer customer) {
+        if (dao.existsByEmail(customer.getEmail())) {
+            System.out.println("❌ Email already exists!");
+            return;
+        }
+        dao.save(customer);
+    }
+
+    @Override
+    public void updateCustomer(Customer customer) {
+        if (!dao.existsById(customer.getId())) {
+            System.out.println("❌ Customer ID not found!");
+            return;
+        }
+        dao.update(customer);
+    }
+
+    @Override
+    public void deleteCustomerById(int id) {
+        if (!dao.existsById(id)) {
+            System.out.println("❌ Customer ID not found!");
+            return;
+        }
+        dao.deleteById(id);
+    }
+
+    @Override
+    public Optional<Customer> findCustomerById(int id) {
+        return dao.findById(id);
     }
 }

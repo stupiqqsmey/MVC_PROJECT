@@ -7,7 +7,7 @@ import kh.edu.service.impl.CustomerServiceImpl;
 import java.util.List;
 
 public class CustomerController {
-    private final CustomerService service = new CustomerServiceImpl();
+    public final CustomerService service = new CustomerServiceImpl();
 
     public List<CustomerResponse> getAllCustomers() {
         return service.getAllCustomerResponses();
